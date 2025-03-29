@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const userRoutes = require("./src/routes/userRoutes"); // Import route
+const authRoutes = require("./src/routes/authRoutes");
 const bodyParser = require("body-parser");
 
 let serverStarted = false;
@@ -9,6 +10,7 @@ app.use(bodyParser.json()); // Cho phép đọc dữ liệu JSON từ request
 
 // Sử dụng route
 app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
 
 //check server
 app.use("/", (req, res) => {
